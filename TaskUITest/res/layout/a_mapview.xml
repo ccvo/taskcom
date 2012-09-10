@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <com.google.android.maps.MapView
+        android:id="@+id/mapview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:apiKey="0Ow8bSNDa45mTg3i1p_gsbuFs-YpA5HbzE5n9hg"
+        android:clickable="true" />
+    <!-- This key "0Ow8bSNDa45kra_lJMphwhFoQckP430n-SZDQ-g" will work for all apps signed with your RELEASE certificate whose fingerprint is: FF:72:76:8A:D8:53:DD:63:E8:12:6A:B8:27:15:6C:60 -->
+    <!-- Your key is: 0Ow8bSNDa45mTg3i1p_gsbuFs-YpA5HbzE5n9hg all apps signed with your DEBUG certificate whose fingerprint is: 60:90:B0:50:33:AC:44:20:16:D4:4C:4D:D2:98:B5:47 -->
+
+    <LinearLayout
+        android:id="@+id/footer"
+        style="@android:style/ButtonBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/next_button_label" />
+
+        <Button
+            android:id="@+id/skipButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/skip_button_label" />
+
+        <Button
+            android:id="@+id/shareButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/share_button_label" />
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/back_button_label" />
+    </LinearLayout>
+
+</RelativeLayout>

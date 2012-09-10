@@ -1,0 +1,12 @@
+ <task xmlns="http://homepage.cs.latrobe.edu.au/ccvo/task" id="find_place">
+  <title>Find a place to visit</title>
+  <ui>
+		<textview text="Enter place's name or address:"/>
+		<input name="place" type="string" value="La Trobe University, Melbourne"/>
+  </ui>
+	<task>
+   <ui>
+		<mapview address="$place"/>
+   </ui>
+	</task>
+ </task>

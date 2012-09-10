@@ -1,0 +1,21 @@
+<task xmlns="http://homepage.cs.latrobe.edu.au/ccvo/task" id="scan_library_card" optional="false" shareable="true">
+ <ui>
+	<textview text="Please scan the barcode of your library card."/>
+	<input type="barcode" name="user_barcode" value="11"/>
+ </ui>
+ <service id="check_cardcode" url="http://localhost:8084/taskos/checkCardcode">
+	<args>
+	 <arg name="cardcode" value="$user_barcode"/>
+	</args>
+ </service>
+ <if condition="$check_cardcode$ == false">
+	<then>
+	 <task>
+	  <ui>
+		  <textview text="Could not find your card id in the system. Please try it again or ask for support."/>
+		</ui>
+	 </task>
+	 <include taskid="scan_library_card"/>
+	</then>
+ </if>
+</task>

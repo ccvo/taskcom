@@ -1,0 +1,25 @@
+ <task xmlns="http://homepage.cs.latrobe.edu.au/ccvo/task" id="make_coffee">
+  <title>Make Coffee</title>
+  <ui>
+    <textview text="Let's make coffee"/>
+    <img url="http://homepage.cs.latrobe.edu.au/ccvo/task/img/coffee.png"/>
+  </ui>
+    <task id="select_coffee_type">
+      <title>Select coffee to make</title>
+      <ui>
+        <textview text="What coffee to make:"/>
+        <select name="coffee_type">
+          <option value="0" text="Cappuccino"/>
+          <option value="1" text="Espresso"/>
+        </select>
+      </ui>
+    </task>
+	<if condition="$select_coffee_type.coffee_type == 0">
+		<then>
+			<include taskid="make_cappuccino"/>
+		</then>
+		<otherwise>
+		  <include taskid="make_espresso"/>
+		</otherwise>
+	</if>
+ </task>

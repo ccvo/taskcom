@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<searchable xmlns:android="http://schemas.android.com/apk/res/android"
+    android:hint="@string/search_hint"
+    android:label="@string/app_name"
+    android:searchMode="queryRewriteFromText"
+    android:searchSettingsDescription="@string/search_settings_description"
+    android:searchSuggestAuthority="com.taskui.models.TaskSuggestionProvider"
+    android:searchSuggestIntentAction="android.intent.action.VIEW"
+    android:searchSuggestIntentData="content://com.taskui.models.TaskSuggestionProvider/task"
+    android:searchSuggestSelection=" ?"
+    android:searchSuggestThreshold="1"
+    android:voiceLanguage="en"
+    android:voiceLanguageModel="web_search"
+    android:voiceMaxResults="1"
+    android:voicePromptText="What task would you like to do?"
+    android:voiceSearchMode="showVoiceSearchButton|launchRecognizer" >
+
+</searchable>

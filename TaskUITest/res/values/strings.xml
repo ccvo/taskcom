@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="search_hint">Search tasks</string>
+    <string name="search_settings_description">Executable tasks</string>
+    <string name="app_name">TaskUI</string>
+    <string name="back_button_label">BACK</string>
+    <string name="next_button_label">NEXT</string>
+    <string name="done_button_label">DONE</string>
+    <string name="share_button_label">SHARE</string>
+    <string name="skip_button_label">SKIP</string>
+    <string name="anything">anything</string>
+    <string name="task_execution_default_title">Task Execution</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_realname">Your real name</string>
+    <string name="button_label_register">REGISTER</string>
+    <string name="button_label_from_contacts">From Contacts List</string>
+    <string name="add_button_label">ADD SERVER</string>
+    <string name="view_tasks_button_label">VIEW TASKS</string>
+    <string name="switch_task_server_button_label">SWITCH TASK SERVER</string>
+    <string name="registration">Registration</string>
+    <string name="location_based_task_servers">Space-Based Task Servers</string>
+    <string name="location_aware_task_recommendations">Space-Aware Task Recommendations</string>
+    <string name="button_label_tap_to_scan">Tap to scan</string>
+
+</resources>

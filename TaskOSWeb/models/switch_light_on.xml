@@ -1,0 +1,6 @@
+<service xmlns="http://homepage.cs.latrobe.edu.au/ccvo/task" url="http://localhost:8084/taskos/switchLight" id="switch_light_on">
+	<args>
+			<arg name="lightid" value="1"/>
+			<arg name="isON" value="1"/>
+	</args>
+</service>

@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/mnu_keyboard_search" android:title="Keyboard/Voice search"
+		android:icon="@android:drawable/ic_menu_search" />
+	<item android:id="@+id/mnu_gesture_search" android:title="Gesture search"
+		android:icon="@android:drawable/ic_menu_edit" />
+	<item android:id="@+id/mnu_settings" android:title="Settings"
+		android:icon="@android:drawable/ic_menu_preferences" />
+	<item android:id="@+id/mnu_switch_task_space" android:title="Switch task space"
+		android:icon="@android:drawable/ic_menu_manage" />
+</menu>

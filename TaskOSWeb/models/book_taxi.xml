@@ -1,0 +1,72 @@
+ <task xmlns="http://homepage.cs.latrobe.edu.au/ccvo/task" id="book_taxi">
+  <title>Book a taxi</title>
+  <ui>
+    <textview text="Let's book a taxi!"/>
+    <img url="http://homepage.cs.latrobe.edu.au/ccvo/task/img/taxi.png"/>
+  </ui>
+	<task id="select_taxi_provider">
+		<title>Select taxi provider</title>
+		<ui>
+			<textview text="Select a taxi provider:"/>
+			<select name="taxi_provider">
+				<option value="7256" text="Silver Cap"/>
+				<option value="467" text="Taxi 113"/>
+				<option value="2645" text="Yellow Taxi"/>
+			</select>
+		</ui>
+	</task>
+	<task id="provide_number_of_passengers">
+		<title>Number of passengers</title>
+		<ui>
+			<textview text="How many passengers?"/>
+			<select name="number_of_passengers">
+				<option value="1" text="1"/>
+				<option value="2" text="2"/>
+				<option value="3" text="3"/>
+				<option value="4" text="4"/>
+			</select>
+		</ui>
+	</task>
+	<task id="provide_start_address">
+		<title>Pickup address</title>
+		<ui>
+			<textview text="What is pickup address?"/>
+			<input type="address" name="start_address"/>
+		</ui>
+	</task>
+	<task id="provide_end_address">
+		<title>Destination address</title>
+		<ui>
+			<textview text="What is destination address?"/>
+			<input type="address" name="end_address"/>
+		</ui>
+	</task>
+	<task id="provide_date_time">
+		<title>Date and time</title>
+		<ui>
+			<textview text="When to pick you up?"/>
+			<input type="datetime" name="date_time"/>
+		</ui>
+	</task>
+	<task id="provide_phone_number">
+		<title>Phone number</title>
+		<ui>
+			<textview text="What is contact number?"/>
+			<input type="phonenumber" name="phone_number"/>
+		</ui>
+	</task>
+	<service id="book_taxi_service">
+		<args>
+			<arg value="$select_taxi_provider.taxi_provider"/>
+			<arg value="$provide_number_of_passengers.number_of_passengers"/>
+			<arg value="$provide_start_address.start_address"/>
+			<arg value="$provide_end_address.end_address"/>
+			<arg value="$provide_date_time.date_time"/>
+			<arg value="$provide_phone_number.phone_number"/>
+		</args>
+	</service>
+	<task id="information">
+		<title>Confirmation</title>
+		<ui><textview text="DONE!"/></ui>
+	</task>
+ </task>

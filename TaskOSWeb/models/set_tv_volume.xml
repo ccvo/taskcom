@@ -1,0 +1,17 @@
+<task xmlns="http://homepage.cs.latrobe.edu.au/ccvo/task" id="set_tv_volume">
+  <title>Set Volume</title>
+  <ui>
+	  <textview text="Let's set the TV's volume:"/>
+	  <slider name="volume" value="50" min="0" max="100" step="5" listener="volume_listener"/>
+		<!-- the listener has a url that will be constructed based on the list of args.
+		     In the following, the url will finally look like: http://149.144.209.135:8084/taskos/setVolume?tvid=1&volume=50
+				 the url will be called on the changes of the value of the slider
+		-->
+		<listener id="volume_listener" url="http://149.144.209.135:8084/taskos/setTVVolume">
+			<args>
+			  <arg name="tvid" value="1"/>
+			  <arg name="volume" value="$volume"/>
+	    </args>
+		</listener>
+  </ui>
+</task>

@@ -1,0 +1,37 @@
+<task xmlns="http://homepage.cs.latrobe.edu.au/ccvo/task" id="set_tv_channel">
+  <title>Set TV Channel</title>
+  <ui>
+	  <textview text="Select a channel:"/>
+		<!-- value is the default value (optional) -->
+	  <listview name="channel" value="2" listener="channel_listener">
+		  <option value="1" text="Channel 1"/>
+			<option value="2" text="Channel 2"/>
+			<option value="3" text="Channel 3"/>
+			<option value="4" text="Channel 4"/>
+			<option value="5" text="Channel 5"/>
+			<option value="6" text="Channel 6"/>
+			<option value="7" text="Channel 7"/>
+			<option value="8" text="Channel 8"/>
+			<option value="9" text="Channel 9"/>
+			<option value="10" text="Channel 10"/>
+			<option value="11" text="Channel 11"/>
+			<option value="12" text="Channel 12"/>
+			<option value="13" text="Channel 13"/>
+			<option value="14" text="Channel 14"/>
+			<option value="15" text="Channel 15"/>
+			<option value="16" text="Channel 16"/>
+			<option value="17" text="Channel 17"/>
+			<option value="18" text="Channel 18"/>
+		</listview>
+		<!-- the listener has a url that will be constructed based on the list of args.
+		     In the following, the url will finally look like: http://149.144.209.135:8084/taskos/setTVChannel?tvid=1&channel=4
+				 the url will be called on the changes of the value of the slider
+		-->
+		<listener id="channel_listener" url="http://149.144.209.135:8084/taskos/setTVChannel">
+			<args>
+			  <arg name="tvid" value="1"/>
+			  <arg name="channel" value="$channel"/>
+	    </args>
+		</listener>
+  </ui>
+</task>

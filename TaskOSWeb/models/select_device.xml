@@ -1,0 +1,16 @@
+<task id="select_device" xmlns="http://homepage.cs.latrobe.edu.au/ccvo/task">
+	<title>Select device</title>
+	<ui>
+		<textview text="Please select a device:"/>
+		<select name="device">
+			<option value="0" text="TV"/>
+			<option value="1" text="Lights"/>
+			<option value="2" text="Coffee Machine"/>
+		</select>
+	</ui>
+	<service id="get_command" url="http://homepage.cs.latrobe.edu.au/ccvo/task/descriptions/select_command.xml">
+	 <args>
+	  <arg name="deviceid" value="$device"/>
+	 </args>
+	</service>
+</task>

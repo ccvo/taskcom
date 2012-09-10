@@ -1,0 +1,69 @@
+#	Document Title: RNC Schema for Task Description Language (TaskML)
+#	Document URL: http://homepage.cs.latrobe.edu.au/ccvo/task/task.rnc
+#	Contributors: 
+#		Chuong C. Vo, Department of Computer Science & Computer Engineering, La Trobe University
+#		Torab Torabi, Department of Computer Science & Computer Engineering, La Trobe University
+#       Seng W. Loke, Department of Computer Science & Computer Engineering, La Trobe University
+#	Date: May 10, 2012
+#
+#	Abstract: This is the complete RNC Schema file for the Task Description Language.
+#
+#	MIME type: A document conforming to this schema should be served with a MIME type of application/task+xml.
+#
+
+default namespace = "http://homepage.cs.latrobe.edu.au/ccvo/task"
+
+namespace xsd = "http://www.w3.org/2001/XMLSchema"
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+	
+start = Task | IncludedTask | Service | If
+ 
+Task = 	element task { 
+			attribute id { xsd:ID }?,
+			[ a:defaultValue="false" ] attribute optional { xsd:boolean }?, 
+			[ a:defaultValue="false" ] attribute shareable { xsd:boolean }?, 
+			Title?,
+			UI,
+			((Task | IncludedTask | Service | If)*)*
+		}
+
+	Title 	= element title { text }
+	
+	UI 		= element ui { MapView*, TextView*, Image*, Select*, Input*, Slider*, Listview*, Listener* }
+
+		TextView 	= element textview { attribute text { text } }
+
+		Image 	= element img { attribute url { xsd:anyURI } }
+
+		Select 	= element select { attribute name {xsd:QName}, attribute value { text }?, Option* }
+
+		Input 	= element input { attribute type {DataType},
+		                          attribute name {xsd:QName},
+															attribute value {text}? }
+
+			Option = element option { attribute value {text}, attribute text { text }}
+
+			DataType = "barcode" | "address" | "datetime" | "phonenumber" | "string" | "boolean" | "integer" | "double"
+		
+		MapView	= element mapview { attribute address { text }? }
+		
+		Slider	= element slider { attribute name {xsd:QName}, attribute value { xsd:integer }?,
+															 attribute min { xsd:integer }, attribute max { xsd:integer }, attribute step { xsd:integer }, attribute listener { xsd:QName }? }
+
+		Listview	= element listview { attribute name {xsd:QName}, attribute value { text }?, attribute listener { xsd:QName }?, Option* }
+
+		Listener	= element listener {attribute id {xsd:ID}?, attribute url {xsd:anyURI}, Arguments?}
+		
+		Service = element service {attribute id {xsd:ID}?, attribute url {xsd:anyURI}?, Arguments?}
+
+			Arguments = element args { Argument* }
+
+				Argument = element arg { attribute name {xsd:QName}?, attribute value { text } }
+				
+		If	= element if {attribute id {xsd:ID}?, attribute condition { text }, Then, Else?}
+		
+			Then = element then { (Task | IncludedTask)+ }*
+			
+			Else = element otherwise { (Task | IncludedTask)+ }*
+			
+				IncludedTask = element include {attribute id {xsd:ID}?, attribute taskid { xsd:ID } }

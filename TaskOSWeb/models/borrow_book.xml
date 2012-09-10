@@ -1,0 +1,58 @@
+<task xmlns="http://homepage.cs.latrobe.edu.au/ccvo/task" id="borrow_book">
+  <title>Borrow a book</title>
+  <ui>
+    <textview text="Let's start to borrow a book from the library!"/>
+  </ui>
+	<!--
+		Optional="true" means that this task will be presented to the user, however the user can go 'next' without supplying any values the task requires
+	-->
+	<task optional="true" shareable="false">
+   <ui>
+    <textview text="Please go to the library."/>
+   </ui>
+	</task>
+	
+  <task optional="true" shareable="true">
+	  <title>Search for book's location</title>
+    <ui>
+      <textview text="What book would you like to borrow (one of 'java', 'database', 'programming')?"/>
+	  	<input type="string" name="book" value="java"/>
+    </ui>
+		
+ 	  <service id="get_book_location" url="http://localhost:8084/taskos/searchBook">
+		 <args>
+		  <arg name="book" value="$book"/>
+		 </args>
+	  </service>
+		
+		<task>
+		 <title>Information</title>
+ 		 <ui>
+			<textview text="$get_book_location"/>
+		 </ui>
+		</task>
+	</task>
+	
+	<task optional="true">
+	 <ui>
+	  <textview text="Please take your book from the shelf."/>
+	 </ui>
+	</task>
+		
+	<include taskid="scan_library_card"/>
+	<include taskid="scan_book"/>
+	
+	<service id="checkout_book" url="http://localhost:8084/taskos/checkoutBook">
+	 <args>
+	  <arg name="user" value="$user_barcode"/>
+	  <arg name="book" value="$book_barcode"/>
+	 </args>
+	</service>
+		
+	<task>
+	 <title>Confirmation</title>
+	 <ui>
+		<textview text="$checkout_book"/>
+	 </ui>
+	</task>
+</task>

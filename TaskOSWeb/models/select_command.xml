@@ -1,0 +1,15 @@
+<task id="select_command" xmlns="http://homepage.cs.latrobe.edu.au/ccvo/task">
+	<title>Select command</title>
+	<ui>
+		<textview text="What would you like to do?"/>
+		<select name="command">
+			<option value="0" text="Set TV channel"/>
+			<option value="1" text="Set TV volume"/>
+		</select>
+	</ui>
+	<service url="http://localhost:8084/taskos/controlTV">
+	 <args>
+	  <arg name="cmd" value="$command"/>
+	 </args>
+	</service>
+</task>

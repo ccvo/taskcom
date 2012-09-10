@@ -1,0 +1,52 @@
+#	Document Title: RNC Schema for Task Description Language (I'd like to have a name for the language such as TaskUI 1.0 or TaskOS 1.0 or TaskDL 1.0)
+#	Document URL: http://homepage.cs.latrobe.edu.au/ccvo/task/task.rnc
+#	Contributors: 
+#		Chuong C. Vo, Department of Computer Science & Computer Engineering, La Trobe University
+#		Torab Torabi, Department of Computer Science & Computer Engineering, La Trobe University
+#       Seng W. Loke, Department of Computer Science & Computer Engineering, La Trobe University
+#	Date: May 10, 2012
+#
+#	Abstract: This is the complete RNC Schema file for the Task Description Language.
+#
+#	MIME type: A document conforming to this schema should be served with a MIME type of application/task+xml.
+#
+
+default namespace = "http://homepage.cs.latrobe.edu.au/ccvo/task"
+
+namespace xsd = "http://www.w3.org/2001/XMLSchema"
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dc = "http://purl.org/dc/elements/1.1" 
+namespace dcterms = "http://purl.org/dc/terms"
+	
+start = Task
+ 
+Task = 	element task { 
+			attribute id { xsd:ID },
+			Title,
+			UI,
+			Subtasks
+		}
+
+	Title 	= element title { text? }
+	
+	UI 		= element ui { Text*, Image*, Select*, Input* }
+
+		Text 	= element text { text }
+
+		Image 	= element img { attribute src { xsd:anyURI } }
+
+		Select 	= element select { attribute name {xsd:QName}, Option* }
+
+		Input 	= element input { attribute type {DataType}, attribute name {xsd:QName} }
+
+			Option = element option { attribute value {text?}, attribute text { text? }}
+
+			DataType = "address" | "datetime" | "phonenumber" | "String" | "boolean" | "integer" | "double"
+
+	Subtasks 	= element subtasks {(Task | Service)*}*
+
+		Service = element service {attribute name {xsd:QName}, Arguments}
+
+			Arguments = element args { Argument* }
+
+				Argument = element arg { xsd:token { pattern = "$\i[\c-[:.\-]]*.\i[\c-[:.\-]]*" } }

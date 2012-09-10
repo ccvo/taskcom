@@ -1,0 +1,45 @@
+ <task xmlns="http://homepage.cs.latrobe.edu.au/ccvo/task" id="make_espresso">
+  <title>Make Espresso</title>
+  <ui>
+    <textview text="Let's make espresso"/>
+    <img url="http://homepage.cs.latrobe.edu.au/ccvo/task/img/espresso.png"/>
+  </ui>
+	<task id="select_number_cups">
+		<title>Number of cups</title>
+		<ui>
+			<textview text="How many cups?"/>
+			<select name="number_cups">
+				<option value="1" text="One"/>
+				<option value="2" text="Two"/>
+				<option value="3" text="Three"/>
+			</select>
+		</ui>
+	</task>
+	<task id="select_number_sugars">
+		<title>Sugar</title>
+		<ui>
+			<textview text="How many sugars?"/>
+			<select name="number_sugars">
+				<option value="0" text="Zero"/>
+				<option value="1" text="One"/>
+				<option value="2" text="Two"/>
+				<option value="3" text="Three"/>
+			</select>
+		</ui>
+	</task>
+	<task>
+		<ui>
+				<textview text="Please wait for some minutes..."/>
+		</ui>
+		<service id="make_espresso">
+			<args>
+				<arg value="$select_number_cups.number_cups"/>
+				<arg value="$select_number_sugars.number_sugars"/>
+			</args>
+		</service>
+	</task>
+	<task id="information">
+		<title>Done</title>
+		<ui><textview text="Enjoy your coffee!"/></ui>
+	</task>
+ </task>

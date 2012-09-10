@@ -1,0 +1,16 @@
+<task id="select_location" xmlns="http://homepage.cs.latrobe.edu.au/ccvo/task">
+	<title>Select location</title>
+	<ui>
+		<textview text="Please select a location:"/>
+		<select name="location">
+			<option value="0" text="Chuong's house"/>
+			<option value="1" text="Room BG 212"/>
+			<option value="2" text="Staff Common Room"/>
+		</select>
+	</ui>
+	<service id="get_devices" url="http://homepage.cs.latrobe.edu.au/ccvo/task/descriptions/select_device.xml">
+	 <args>
+	  <arg name="locationid" value="$location"/>
+	 </args>
+	</service>
+</task>

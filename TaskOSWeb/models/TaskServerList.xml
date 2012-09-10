@@ -1,0 +1,32 @@
+<taskservers>
+	<taskserver>
+		<id>1</id>
+	  <space>Australia</space>
+	  <description>Task server: AU-TS1</description>
+	  <url>http://149.144.208.34:8084/taskos/</url>
+	</taskserver>
+	<taskserver>
+		<id>0</id>
+	  <space>La Trobe University</space>
+	  <description>Task server: LTU-TS</description>
+	  <url>http://149.144.208.34:8084/taskos/</url>
+	</taskserver>
+	<taskserver>
+		<id>2</id>
+	  <space>Bob's house</space>
+	  <description>Task server: BOB-HOME-TS</description>
+	  <url>http://149.144.208.34:8084/taskos/</url>
+	</taskserver>
+	<taskserver>
+		<id>3</id>
+	  <space>Room PS1 219 (LTU)</space>
+	  <description>Task server: BOB-OFFICE-TS</description>
+	  <url>http://149.144.208.34:8084/taskos/</url>
+	</taskserver>
+	<taskserver>
+		<id>4</id>
+	  <space>Bob's Android Phone</space>
+	  <description>Task server: BOB-DROID-TS</description>
+	  <url>http://149.144.208.34:8084/taskos/</url>
+	</taskserver>
+</taskservers>

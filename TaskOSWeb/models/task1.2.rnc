@@ -1,0 +1,57 @@
+#	Document Title: RNC Schema for Task Description Language (I'd like to have a name for the language such as TaskUI 1.0 or TaskOS 1.0 or TaskDL 1.0)
+#	Document URL: http://homepage.cs.latrobe.edu.au/ccvo/task/task.rnc
+#	Contributors: 
+#		Chuong C. Vo, Department of Computer Science & Computer Engineering, La Trobe University
+#		Torab Torabi, Department of Computer Science & Computer Engineering, La Trobe University
+#       Seng W. Loke, Department of Computer Science & Computer Engineering, La Trobe University
+#	Date: May 10, 2012
+#
+#	Abstract: This is the complete RNC Schema file for the Task Description Language.
+#
+#	MIME type: A document conforming to this schema should be served with a MIME type of application/task+xml.
+#
+
+default namespace = "http://homepage.cs.latrobe.edu.au/ccvo/task"
+
+namespace xsd = "http://www.w3.org/2001/XMLSchema"
+	
+start = Task
+ 
+Task = 	element task { 
+			attribute id { xsd:ID },
+			Title,
+			UI,
+			Subtasks
+		}
+
+	Title 	= element title { text }
+	
+	UI 		= element ui { TextView*, Image*, Select*, Input* }
+
+		TextView 	= element textview { attribute text { text } }
+
+		Image 	= element img { attribute src { xsd:anyURI } }
+
+		Select 	= element select { attribute name {xsd:QName}, Option* }
+
+		Input 	= element input { attribute type {DataType}, attribute name {xsd:QName} }
+
+			Option = element option { attribute value {text}, attribute text { text }}
+
+			DataType = "address" | "datetime" | "phonenumber" | "string" | "boolean" | "integer" | "double"
+
+	Subtasks 	= element subtasks {(Task | IncludedTask | Service | If)*}*
+
+		Service = element service {attribute id {xsd:QName}, attribute url {xsd:anyURI}?, Title?, UI?, Arguments?}
+
+			Arguments = element args { Argument* }
+
+				Argument = element arg { attribute name {xsd:QName}?, attribute value { text } }
+				
+		If	= element if {attribute condition { text }, Then, Else?}
+		
+			Then = element then { (Task | IncludedTask)+ }*
+			
+			Else = element otherwise { (Task | IncludedTask)+ }*
+			
+				IncludedTask = element include { attribute src { xsd:anyURI } }
